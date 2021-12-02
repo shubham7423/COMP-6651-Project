@@ -53,6 +53,6 @@ class ImprovingFWA:
                     cnt += 1
         
         print(np.array(A))
-        print("Predecessor Matrix: ")
-        print(self.r)
+        # print("Predecessor Matrix: ")
+        # print(self.r)
         print("Number of Operations Performed: ", cnt)

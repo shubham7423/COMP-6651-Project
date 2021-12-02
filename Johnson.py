@@ -13,7 +13,7 @@ class Johnson:
         for _ in range((self.N+1)-1):
             for i in range(self.N+1):
                 for j in range(self.N+1):
-                    if distances[i] != float("inf") and distances[i] + A[i][j] < distances[j]:
+                    if distances[i] < float("inf") and distances[i] + A[i][j] < distances[j]:
                         distances[j] = distances[i] + A[i][j]
                         self.cnt += 1
         return distances
@@ -60,6 +60,7 @@ class Johnson:
             for j in range(self.N):
                 updated_A[i, j] = A[i][j] + vertice_weights[i] - vertice_weights[j]
         
+        print("Updated: ", np.array(updated_A))
         final_opt = []
         for i in range(self.N):
             dij_opt = self.dijkstra(updated_A, i)

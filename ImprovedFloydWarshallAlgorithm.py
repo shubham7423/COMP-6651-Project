@@ -7,16 +7,61 @@ from Johnson import Johnson
 from OurAlgorithm import OurAlgorithm
 from RectangleAlgorithm import RectangleAlgorithm
 import time
+import random
+
+def getRandomGraph(V, num_infs):
+    
+    while True:
+        x = [[random.randint(-8, 20) for _ in range(V)] for _ in range(V)]
+        for i in range(N):
+            for j in range(N):
+                if i == j:
+                    x[i][j] = 0
+        
+        inf_cnt = 0
+        while inf_cnt < num_infs:
+            i = random.randint(0, V-1)
+            j = random.randint(0, V-1)
+
+            if i != j:
+                if x[i][j] < float('inf'):
+                    x[i][j] = float('inf')
+                    inf_cnt += 1
+        
+        temp = copy.deepcopy(x)
+        for k in range(V):
+            for i in range(V):
+                for j in range(V):
+                    temp[i][j] = min(temp[i][k]+x[k][j], temp[i][j])
+    
+        i = 0 
+        j = 0
+        cnt = 0
+        for i in range(N):
+            for j in range(N):
+                if i == j and temp[i][j] == 0:
+                    cnt += 1
+
+        if cnt == N:
+            return x
 
 if __name__ == "__main__":
-    N = 5
-    A = [
-        [0, 6, float("inf"), 5, float("inf")],
-        [2, 0, 3, -1, 2],
-        [-2, float("inf"), 0, 2, float("inf")],
-        [-1, 1, 2, 0, -1],
-        [1, float("inf"), float("inf"), float("inf"), 0],
-    ]
+    N = 7
+    A = getRandomGraph(N, 0)
+    # print(np.array(A))
+    # A = [
+    #     [0, 3, 5, float('inf')],
+    #     [4, 0, 7, 4],
+    #     [6, 3, 0, 5],
+    #     [float('inf'), 6, 3, 0]
+    # ]
+    # A = [
+    #     [0, 6, float("inf"), 5, float("inf")],
+    #     [2, 0, 3, -1, 2],
+    #     [-2, float("inf"), 0, 2, float("inf")],
+    #     [-1, 1, 2, 0, -1],
+    #     [1, float("inf"), float("inf"), float("inf"), 0],
+    # ]
     
     GR = copy.deepcopy(A)
     RA = copy.deepcopy(A)

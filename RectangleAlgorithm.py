@@ -35,8 +35,8 @@ class RectangleAlgorithm:
             if k not in infs_lst_y:
                 infs_lst_y.append(k)
 
-            for i in [x for x in range(5) if x not in infs_lst_y]:
-                for j in [x for x in range(5) if x not in infs_lst_x]:
+            for i in [x for x in range(self.N) if x not in infs_lst_y]:
+                for j in [x for x in range(self.N) if x not in infs_lst_x]:
                     if i != j:
                         if A[i][j] > A[k][j]+A[i][k]:
                             A[i][j] = A[k][j]+A[i][k]
@@ -44,6 +44,6 @@ class RectangleAlgorithm:
                         cnt += 1
         
         print(np.array(A))
-        print("Predecessor Matrix: ")
-        print(self.r)
+        # print("Predecessor Matrix: ")
+        # print(self.r)
         print("Number of Operations Performed: ", cnt)
