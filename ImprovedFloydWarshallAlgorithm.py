@@ -42,26 +42,12 @@ def getRandomGraph(V, num_infs):
                 if i == j and temp[i][j] == 0:
                     cnt += 1
 
-        if cnt == N:
+        if cnt == V:
             return x
 
 if __name__ == "__main__":
-    N = 7
-    A = getRandomGraph(N, 0)
-    # print(np.array(A))
-    # A = [
-    #     [0, 3, 5, float('inf')],
-    #     [4, 0, 7, 4],
-    #     [6, 3, 0, 5],
-    #     [float('inf'), 6, 3, 0]
-    # ]
-    # A = [
-    #     [0, 6, float("inf"), 5, float("inf")],
-    #     [2, 0, 3, -1, 2],
-    #     [-2, float("inf"), 0, 2, float("inf")],
-    #     [-1, 1, 2, 0, -1],
-    #     [1, float("inf"), float("inf"), float("inf"), 0],
-    # ]
+    N = 8
+    A = getRandomGraph(N, 20)
     
     GR = copy.deepcopy(A)
     RA = copy.deepcopy(A)
@@ -93,12 +79,6 @@ if __name__ == "__main__":
     start = time.time()
     improvingFWA = ImprovingFWA(N)
     improvingFWA.improved_FW(IF)
-    print(time.time() - start)
-
-    print("\n---------------Johnson's Algorithm---------------")
-    start = time.time()
-    johnson = Johnson(N)
-    johnson.johnson(JA)
     print(time.time() - start)
 
     print("\n---------------Our Approach---------------")
