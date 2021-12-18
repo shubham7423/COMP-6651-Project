@@ -46,13 +46,14 @@ def getRandomGraph(V, num_infs):
             return x
 
 if __name__ == "__main__":
-    N = 8
-    A = getRandomGraph(N, 20)
+    N = 8 # Number of edges in graph
+    inf = 20 # Number of infinite values in graph
+    
+    A = getRandomGraph(N, inf)
     
     GR = copy.deepcopy(A)
     RA = copy.deepcopy(A)
     IF = copy.deepcopy(A)
-    JA = copy.deepcopy(A)
     OA = copy.deepcopy(A)
 
     print("---------------Adjacency Matrix---------------\n", np.array(A))

@@ -41,7 +41,5 @@ class GargRawatUP:
 
         
         print(np.array(A))
-        # print("Predecessor Matrix: ")
-        # print(self.r)
         print("Number of Operations Performed: ", cnt)
 
