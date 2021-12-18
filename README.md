@@ -1,8 +1,8 @@
 # COMP-6651-Project
 
 Files:
--> GargRawatUP.py [1]
--> ImprovingFWA.py [2]
+-> GargRawatUP.py [1] <br>
+-> ImprovingFWA.py [2] 
 -> RectangleAlgorithm.py [3]
 -> OurAlgorithm.py - Our approach
 -> main.py - Used to generate a graph and test every algorithm.
